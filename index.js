@@ -5,8 +5,13 @@ const teams = require('./teams.json')
 const http_port = 1337
 const bodyParser = require('body-parser')
 
+// Todo: Create the teams.js
+const TeamsModel = require('./teams.json')
 
-app.get('/teams', (_request, response) => {
+
+//goal is to remove this and 
+
+app.get('/teams', (request, response) => {
     response.send(teams)
 })
 
@@ -16,7 +21,7 @@ app.get('/teams/:filter', (request, response) => {
     return team.id == filter || team.abbreviation == filter || team.division == filter || team.conference == filter
   })
     let locations = result.map((team) => {
-        return team.location
+    return team.location
     })
     response.send(locations)
     console.log(filter)
